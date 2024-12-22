@@ -1,0 +1,9 @@
+1. Создание Docker-образа: docker build -t d_img:latest .
+
+2. Запуск контейнера: docker run -d -p 5432:5432 --name d_cont d_img:latest
+
+3. Создание тома (добавление инструкции для создания в Dockerfile): VOLUME /var/lib/postgresql/data 
+
+4. Создание docker-контейнера с томом на основе docker-образа: docker run -d -p 5432:5432 --name d_count d_img:latest -v /d_data:/var/lib/postgresql/data
+
+5. Запуск контейнера с интерфейсом psql: docker exec -it d_cont psql -U postgres -d Test
